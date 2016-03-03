@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: Marcel 'CoNfu5eD Naeve <confu5ed@serious-pro.de>
  * Date: 28.02.2016
  * Time: 15:09
