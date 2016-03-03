@@ -24,7 +24,12 @@ define ('__TEMP_DIR__',         __DIR__ . "/temp");
 define ('__SYSTEM_DIR__',       __DIR__ . "/system");
 define ('__PLUGINS_DIR__',      __DIR__ . "/plugins");
 define ('__THEMES_DIR__',       __DIR__ . "/themes");
-define ('__CONFIG_DIR__',       __SYSTEM_DIR__ . "/config");
+define ('__CONFIGS_DIR__',      __SYSTEM_DIR__ . "/configs");
 define ('__FUNCTIONS_DIR__',    __SYSTEM_DIR__ . "/functions");
 define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
 
+
+/*
+ * Load Configuration Files
+ */
+include_once (__SYSTEM_DIR__ . "/load.config.php");
