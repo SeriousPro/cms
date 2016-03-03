@@ -33,3 +33,8 @@ define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
  * Load Configuration Files
  */
 include_once (__SYSTEM_DIR__ . "/load.config.php");
+
+/*
+ * Load Class Files
+ */
+include_once (__SYSTEM_DIR__ . "/load.classes.php");
