@@ -20,7 +20,7 @@ define('INDEX', true);
 /*
  * Define Constants - Basic Paths
  */
-define ('__TEMP_DIR__',     __DIR__ . "/themes");
+define ('__TEMP_DIR__',     __DIR__ . "/temp");
 define ('__SYSTEM_DIR__',   __DIR__ . "/system");
 define ('__PLUGINS_DIR__',  __DIR__ . "/plugins");
 define ('__THEMES_DIR__',   __DIR__ . "/themes");
