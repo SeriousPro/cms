@@ -12,7 +12,14 @@
 class Url
 {
 
+    /**
+     * @var int Static value for getters parameter (get plain text).
+     */
     static $GET_PLAIN = 0;
+
+    /**
+     * @var int Static value for getters parameter (get printable - html entities).
+     */
     static $GET_PRINT = 1;
 
     /**
