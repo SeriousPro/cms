@@ -61,7 +61,7 @@ class Lang
             $_SESSION['language'] = $_GET['lang'];
             return;
         }
-        $_SESSION['language'] = "en";
+        $_SESSION['language'] = DEFAULT_LANGUAGE;
     }
 }
 
