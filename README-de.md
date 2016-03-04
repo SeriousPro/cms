@@ -21,7 +21,7 @@ Dies sind heute alles standard Bestandteile einer Webseite, weshalb jeder Web-En
 mit unserem cms arbeiten können sollte nach 5 Minuten Dokumentation lesen.
 Und es steht unter einer OpenSource
 
-## Dual-Lizens
+## Dual-Lizenz
 1. [LGPLv2.1](https://github.com/SeriousPro/cms/blob/master/LICENSE1)
 2. [LGPLv3](https://github.com/SeriousPro/cms/blob/master/LICENSE2)
 
