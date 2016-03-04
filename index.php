@@ -50,6 +50,14 @@ include_once (__SYSTEM_DIR__ . "/load.classes.php");
 select_theme();
 
 /*
- * Load Theme
+ * Load Theme and/or Content
  */
+$cms_plugin_use_no_theme = false; // allows plugins to disable theme for example for rss/atom feeds.
+ob_start();
 include_once (__THEMES_DIR__ . "/${_SESSION['theme']}/theme.php");
+if($cms_plugin_use_no_theme) {
+    ob_end_clean();
+    Plugin::body(Plugin::select(), $_GET['params']);
+} else {
+    ob_end_flush();
+}
