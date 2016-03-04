@@ -14,7 +14,7 @@ sondern nur die Grundlagen braucht
 * PHP 5.5+
 * SQL
 * HTML 5
-* jQuery 2
+* jQuery 2 (optional aber empfohlen)
 * Bootstrap 3 (optional aber empfohlen)
 
 Dies sind heute alles standard Bestandteile einer Webseite, weshalb jeder Web-Entwickler

@@ -13,7 +13,7 @@ so we give you a cms were you only need to know the basics
 * PHP 5.5+
 * SQL
 * HTML 5
-* jQuery 2
+* jQuery 2 (optionally but recommended)
 * Bootstrap 3 (optionally but recommended)
 
 All this is basically standard for websites today, so most web-developers
