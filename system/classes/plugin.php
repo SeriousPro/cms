@@ -13,7 +13,7 @@ class Plugin
 {
 
     /**
-     * Function for getting the head of a plugin.
+     * Function for getting the head of a site/plugin.
      * @param $plugin string - plugin name
      * @param $params string - plugin parameters (syntax defined by plugin)
      */
@@ -24,12 +24,24 @@ class Plugin
     }
 
     /**
-     * Function for getting the body of a plugin.
+     * Function for getting the body of a site/plugin.
      * @param $plugin string - plugin name
      * @param $params string - plugin parameters (syntax defined by plugin)
      */
     static function body($plugin, $params="") {
         $requested_file =__PLUGINS_DIR__ . "/$plugin/body.php";
+        if(file_exists($requested_file))
+            include ($requested_file);
+    }
+
+    /**
+     * Function for getting breadcrumbs of a site/plugin.
+     * @param $plugin string - plugin name
+     * @param $params string - plugin parameters (syntax defined by plugin)
+     * @param $split string - split between parts of breadcrumbs
+     */
+    static function breadcrumbs($plugin, $params="", $split="/") {
+        $requested_file =__PLUGINS_DIR__ . "/$plugin/breadcrumbs.php";
         if(file_exists($requested_file))
             include ($requested_file);
     }
