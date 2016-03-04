@@ -11,6 +11,14 @@
 session_start();
 
 /*
+ * Set encoding to UTF-8
+ */
+mb_internal_encoding("UTF-8");
+mb_http_output('UTF-8');
+mb_http_input('UTF-8');
+mb_regex_encoding('UTF-8');
+
+/*
  * Define Constant - Security Check
  * File can check now it has been included to index.php with:
  * if(defined('INDEX')) { ... }
