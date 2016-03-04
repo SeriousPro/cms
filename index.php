@@ -38,3 +38,13 @@ include_once (__SYSTEM_DIR__ . "/load.config.php");
  * Load Class Files
  */
 include_once (__SYSTEM_DIR__ . "/load.classes.php");
+
+/*
+ * Select theme
+ */
+if(isset($_POST['switch_theme'])) {
+    $_SESSION['theme'] = $_POST['switch_theme'];
+}
+if(!isset($_SESSION['theme'])) {
+    $_SESSION['theme'] = DEFAULT_THEME;
+}
