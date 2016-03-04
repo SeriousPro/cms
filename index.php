@@ -35,6 +35,11 @@ define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
 include_once (__SYSTEM_DIR__ . "/load.config.php");
 
 /*
+ * Load Functions
+ */
+include_once (__SYSTEM_DIR__ . "/load.functions.php");
+
+/*
  * Load Class Files
  */
 include_once (__SYSTEM_DIR__ . "/load.classes.php");
@@ -42,9 +47,9 @@ include_once (__SYSTEM_DIR__ . "/load.classes.php");
 /*
  * Select theme
  */
-if(isset($_POST['switch_theme'])) {
-    $_SESSION['theme'] = $_POST['switch_theme'];
-}
-if(!isset($_SESSION['theme'])) {
-    $_SESSION['theme'] = DEFAULT_THEME;
-}
+select_theme();
+
+/*
+ * Load Theme
+ */
+include_once (__THEMES_DIR__ . "/${_SESSION['theme']}/theme.php");
