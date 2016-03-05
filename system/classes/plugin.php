@@ -13,7 +13,7 @@ class Plugin
 {
 
     /**
-     * Function for getting the head of a site/plugin.
+     * Function for printing the head of a site/plugin.
      * @param $plugin string - plugin name
      * @param $params string - plugin parameters (syntax defined by plugin)
      */
@@ -24,7 +24,7 @@ class Plugin
     }
 
     /**
-     * Function for getting the body of a site/plugin.
+     * Function for printing the body of a site/plugin.
      * @param $plugin string - plugin name
      * @param $params string - plugin parameters (syntax defined by plugin)
      */
@@ -35,7 +35,7 @@ class Plugin
     }
 
     /**
-     * Function for getting breadcrumbs of a site/plugin.
+     * Function for printing breadcrumbs of a site/plugin.
      * @param $plugin string - plugin name
      * @param $params string - plugin parameters (syntax defined by plugin)
      * @param $split string - split between parts of breadcrumbs
@@ -47,7 +47,18 @@ class Plugin
     }
 
     /**
-     * Function for getting standalone content of a plugin.
+     * Function for printing the name of the site/requested plugin.
+     * @param $plugin string - plugin name
+     * @param $params string - plugin parameters (syntax defined by plugin)
+     */
+    static function sitename($plugin, $params="") {
+        $requested_file = __PLUGINS_DIR__ . "/$plugin/sitename.php";
+        if(file_exists($requested_file))
+            include ($requested_file);
+    }
+
+    /**
+     * Function for printing standalone content of a plugin.
      * @param $plugin string - plugin name
      * @param $box string - box name (boxes/?.php)
      * @param $params array - parameters for the box
