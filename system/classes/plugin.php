@@ -40,7 +40,7 @@ class Plugin
      * @param $params string - plugin parameters (syntax defined by plugin)
      * @param $split string - split between parts of breadcrumbs
      */
-    static function breadcrumbs($plugin, $params="", $split="/") {
+    static function breadcrumbs($plugin, $params="") {
         $requested_file =__PLUGINS_DIR__ . "/$plugin/breadcrumbs.php";
         if(file_exists($requested_file))
             include ($requested_file);

@@ -25,9 +25,7 @@
 </head>
 <body>
     <header>
-        <ul id="breadcrumbs">
-            <?php Plugin::breadcrumbs(Plugin::select(), $_GET['params']); ?>
-        </ul>
+        <?php Plugin::breadcrumbs(Plugin::select(), $_GET['params']); ?>
     </header>
     <div class="container">
         <section class="row">
