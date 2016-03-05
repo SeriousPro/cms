@@ -33,10 +33,10 @@ class Tpl
         }
         /* Template File Hierarchy */
         $requested_files = [
-            __THEMES_DIR__."/${_SESSION['theme']}/templates/$plugin/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".tpl" ),
-            __THEMES_DIR__."/${_SESSION['theme']}/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".tpl" ),
-            __PLUGINS_DIR__."/$plugin/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".tpl" ),
-            __SYSTEM_DIR__."/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".tpl" )
+            __THEMES_DIR__."/${_SESSION['theme']}/templates/$plugin/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".ptpl" ),
+            __THEMES_DIR__."/${_SESSION['theme']}/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".ptpl" ),
+            __PLUGINS_DIR__."/$plugin/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".ptpl" ),
+            __SYSTEM_DIR__."/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".ptpl" )
         ];
         for($i=0;$i<count($requested_files);$i++) {
             if(file_exists($requested_files[$i])) {
