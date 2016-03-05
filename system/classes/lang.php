@@ -41,12 +41,10 @@ class Lang
                 include ($base_dirs[$i]."/languages/$lang.php");
                 if(isset($tr[$lang]) && isset($tr[$lang][$str])) {
                     return $tr[$lang][$str];
-                } else {
-                    return $str;
                 }
             }
         }
-        return "";
+        return $str;
     }
 
     /**
