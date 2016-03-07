@@ -43,7 +43,7 @@ class Url
 
     /**
      * Site Url generation with more complexity than generateSiteUrl.
-     * @param $data array|object|string - string can be json or custom syntax (see documentation).
+     * @param $data array|object|string - string is custom syntax (see documentation).
      * @return string Url
      */
     static function site($data) {
@@ -63,9 +63,10 @@ class Url
                 case "p:": $p = mb_substr($data, 2, mb_strlen($data)-2); break;
                 case "l:": $l = mb_substr($data, 2, mb_strlen($data)-2); break;
                 default:
-                    $d = json_decode($data);
+                    /*$d = json_decode($data);
                     if($d) return Url::site($d);
-                    break;
+                    break;*/
+                    return "";
             }
         }
         else {
