@@ -58,6 +58,20 @@ class Plugin
     }
 
     /**
+     * Function for checking a plugin needs to be displayed without theme (body only).
+     * @param $plugin string - plugin name
+     * @param $params string - plugin parameters (syntax defined by plugin)
+     * @return bool false => include theme, true => load plugin body
+     */
+    static function notheme($plugin, $params="") {
+        $requested_file = __PLUGINS_DIR__ . "/$plugin/disable_theme.php";
+        if(file_exists($requested_file)) {
+            include($requested_file);
+        }
+        return false;
+    }
+
+    /**
      * Function for printing standalone content of a plugin.
      * @param $plugin string - plugin name
      * @param $box string - box name (boxes/?.php)
