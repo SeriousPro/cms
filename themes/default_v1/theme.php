@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="<?php echo Url::media('themes/default_v1/css/theme.css'); ?>">
 
-    <?php Plugin::head(Plugin::select(), $_GET['params']); ?>
+    <?php Plugin::head(Plugin::select(), Url::getParams()); ?>
 </head>
 <body>
     <header>
@@ -36,11 +36,11 @@
             <li><a href="<?php echo Url::site("l:de"); ?>"><?php echo ( $_SESSION['language'] == "de" ? "*" : "" ); ?>Deutsch</a></li>
             <li><a href="<?php echo Url::site("l:en"); ?>"><?php echo ( $_SESSION['language'] == "en" ? "*" : "" ); ?>English</a></li>
         </ul>
-        <?php Plugin::breadcrumbs(Plugin::select(), $_GET['params']); ?>
+        <?php Plugin::breadcrumbs(Plugin::select(), Url::getParams()); ?>
     </header>
     <div class="container">
         <section class="row">
-            <?php Plugin::body(Plugin::select(), $_GET['params']); ?>
+            <?php Plugin::body(Plugin::select(), Url::getParams()); ?>
         </section>
         <footer class="row">
 
