@@ -52,10 +52,6 @@ include_once (__SYSTEM_DIR__ . "/load.functions.php");
  */
 include_once (__SYSTEM_DIR__ . "/load.classes.php");
 
-/*
- * Load Libraries
- */
-include_once (__SYSTEM_DIR__ ."/load.libs.php");
 
 
 /*
