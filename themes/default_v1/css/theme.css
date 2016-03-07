@@ -9,6 +9,10 @@ nav ul {
 }
 nav ul li {
     display: inline-block;
+}
+
+nav ul li a {
+    display: block;
     height: 40px;
     line-height: 40px;
     padding: 5px;
