@@ -32,6 +32,10 @@
                 <li><a href="<?php echo Url::site("p:test/3"); ?>">Test 3</a></li>
             </ul>
         </nav>
+        <ul id="language_switcher">
+            <li><a href="<?php echo Url::site("l:de"); ?>"><?php echo ( $_SESSION['language'] == "de" ? "*" : "" ); ?>Deutsch</a></li>
+            <li><a href="<?php echo Url::site("l:en"); ?>"><?php echo ( $_SESSION['language'] == "en" ? "*" : "" ); ?>English</a></li>
+        </ul>
         <?php Plugin::breadcrumbs(Plugin::select(), $_GET['params']); ?>
     </header>
     <div class="container">
