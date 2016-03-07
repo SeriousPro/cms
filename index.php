@@ -35,7 +35,6 @@ define ('__THEMES_DIR__',       __DIR__ . "/themes");
 define ('__CONFIGS_DIR__',      __SYSTEM_DIR__ . "/configs");
 define ('__FUNCTIONS_DIR__',    __SYSTEM_DIR__ . "/functions");
 define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
-define ("__LIBS_DIR__",         __SYSTEM_DIR__ . "/libs");
 
 
 /*
