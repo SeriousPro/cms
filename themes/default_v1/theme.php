@@ -27,10 +27,10 @@
     <header>
         <nav>
             <ul>
-                <li><a href="<?php echo Url::site("p:/test/1"); ?>">Test 1</a></li>
-                <li><a href="<?php echo Url::site(["site" => "home", "params" => "/test/2", "lang" => $_SESSION['language']]); ?>">Test 2</a></li>
-                <li><a href="<?php echo Url::site("p:/test/3"); ?>">Test 3</a></li>
-                <li><a href="<?php echo Url::site("{site: 'home', params: '/test/another', lang: '${_SESSION['language']}'}"); ?>">Another Test</a></li>
+                <li><a href="<?php echo Url::site("p:test/1"); ?>">Test 1</a></li>
+                <li><a href="<?php echo Url::site(["site" => "home", "params" => "test/2", "lang" => $_SESSION['language']]); ?>">Test 2</a></li>
+                <li><a href="<?php echo Url::site("p:test/3"); ?>">Test 3</a></li>
+                <li><a href="<?php echo Url::site("{site: 'home', params: 'test/another', lang: '${_SESSION['language']}'}"); ?>">Another Test</a></li>
             </ul>
         </nav>
         <?php Plugin::breadcrumbs(Plugin::select(), $_GET['params']); ?>
