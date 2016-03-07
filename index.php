@@ -60,16 +60,12 @@ include_once (__SYSTEM_DIR__ ."/load.libs.php");
 
 
 /*
- * Select theme
- */
-select_theme();
-
-/*
  * Load Theme and/or Content
  */
 if(Plugin::notheme(Plugin::select(), Url::getParams())) {
     Plugin::body(Plugin::select(), Url::getParams());
 } else {
+    select_theme();
     include_once (__THEMES_DIR__ . "/${_SESSION['theme']}/theme.php");
 }
 
