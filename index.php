@@ -35,6 +35,7 @@ define ('__THEMES_DIR__',       __DIR__ . "/themes");
 define ('__CONFIGS_DIR__',      __SYSTEM_DIR__ . "/configs");
 define ('__FUNCTIONS_DIR__',    __SYSTEM_DIR__ . "/functions");
 define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
+define("__LIBS_DIR__",          __SYSTEM_DIR__ . "/libs");
 
 
 /*
@@ -51,6 +52,12 @@ include_once (__SYSTEM_DIR__ . "/load.functions.php");
  * Load Class Files
  */
 include_once (__SYSTEM_DIR__ . "/load.classes.php");
+
+/*
+ * Load Libraries
+ */
+include_once (__SYSTEM_DIR__ ."/load.libs.php");
+
 
 /*
  * Select theme
