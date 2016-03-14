@@ -94,8 +94,8 @@ class Plugin
         if(isset($_SESSION['default_site'])) {
             return $_SESSION['default_site'];
         }
-        if(defined("DEFAULT_SITE")) {
-            return DEFAULT_SITE;
+        if(Config::get("site_default") != null) {
+            return Config::get("site_default");
         }
         return "error";
     }

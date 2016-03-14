@@ -38,11 +38,6 @@ define ('__CLASSES_DIR__',      __SYSTEM_DIR__ . "/classes");
 
 
 /*
- * Load Configuration Files
- */
-include_once (__SYSTEM_DIR__ . "/load.config.php");
-
-/*
  * Load Functions
  */
 include_once (__SYSTEM_DIR__ . "/load.functions.php");

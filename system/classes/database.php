@@ -11,6 +11,9 @@
  */
 class Database
 {
+    /**
+     * @var PDO
+     */
     static $connection = null;
 
     /**
@@ -19,26 +22,26 @@ class Database
     static function connect() {
         if(Database::$connection == null) {
 
-            $dsn = DATABASE_PDO_DRIVER
-                .";host=".DATABASE_HOST
-                .";port=".DATABASE_PORT
-                .";dbname=".DATABASE_NAME;
+            $dsn = Config::get("database_driver")
+                .";host=".Config::get("database_host")
+                .";port=".Config::get("database_port")
+                .";dbname=".Config::get("database_dbname");
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ];
             if(defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
-                $options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES ".DATABASE_CHARSET." COLLATE ".DATABASE_COLLATE;
+                $options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES ".Config::get("database_charset")." COLLATE ".Config::get("database_collate");
             } else {
                 if(version_compare(PHP_VERSION, '5.3.6', '>=')) {
-                    $dsn .= ";charset=" . DATABASE_CHARSET;
+                    $dsn .= ";charset=" . Config::get("database_charset");
                 }
             }
-            Database::$connection = @new PDO($dsn, DATABASE_USER, DATABASE_PASSWORD);
+            Database::$connection = @new PDO($dsn, Config::get("database_user"), Config::get("database_password"));
 
             if(version_compare(PHP_VERSION, '5.3.6', '<') && !defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
                 Database::$connection->exec(
-                    "SET NAMES " . DATABASE_CHARSET
-                        . (DATABASE_PDO_DRIVER == "mysql" ? " COLLATE ".DATABASE_COLLATE : "" )
+                    "SET NAMES " . Config::get("database_charset")
+                        . (Config::get("database_driver") == "mysql" ? " COLLATE ".Config::get("database_collate") : "" )
                 );
             }
 

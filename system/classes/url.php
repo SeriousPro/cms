@@ -27,7 +27,7 @@ class Url
      * @return string - the complete url to the media file.
      */
     static function media($path) {
-        return MEDIAURL_PREFIX . $path;
+        return Config::get("media_url_prefix") . $path;
     } /* -- end Url::media() -- */
 
     /**
@@ -77,7 +77,7 @@ class Url
         if(!isset($l) && isset($_GET['lang']))      $l = $_GET['lang'];
         if(!isset($p) && isset($_GET['params']))    $p = $_GET['params'];
 
-        if(!isset($l)) { $l = DEFAULT_LANGUAGE; }
+        if(!isset($l)) { $l = Config::get("language_default"); }
 
         return Url::generateSiteUrl($s, $p, $l);
     } /* -- end Url::site() -- */

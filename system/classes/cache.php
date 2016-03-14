@@ -18,7 +18,7 @@ class Cache
      * @param $ttl integer - time to life
      */
     static function set($key, $data, $ttl) {
-        $encrypted_key = hash(CACHE_KEY_ENCRYPTION, CACHE_SECURITY_SALT.$key);
+        $encrypted_key = hash(Config::get("cache_key_encryption"), Config::get("cache_security_salt").$key);
         // TODO: add $data to cache with $encrypted_key as key and a lifetime of $ttl.
     } /* end Cache::set */
 
@@ -28,7 +28,7 @@ class Cache
      * @return object|array|string|integer|null - cached data or null
      */
     static function get($key) {
-        $encrypted_key = hash(CACHE_KEY_ENCRYPTION, CACHE_SECURITY_SALT.$key);
+        $encrypted_key = hash(Config::get("cache_key_encryption"), Config::get("cache_security_salt").$key);
         // TODO: get and return data from cache with $encrypted_key as key.
         return null;
     } /* end Cache::get */

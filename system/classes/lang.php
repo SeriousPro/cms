@@ -59,7 +59,7 @@ class Lang
             $_SESSION['language'] = $_GET['lang'];
             return;
         }
-        $_SESSION['language'] = DEFAULT_LANGUAGE;
+        $_SESSION['language'] = Config::get("language_default");
     }
 }
 
