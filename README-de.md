@@ -39,6 +39,6 @@ Bibliotheken werden bald verfügbar sein.
 Sieh unsere Dateien an und melde Fehler, mach Vorschläge zur Verbesserung unseres cms
 und unserer anderen Entwicklungen auf unserer [github Seite](https://github.com/SeriousPro) falls du möchtest.
 Oder unterstütze uns durch..
-[PayPal Spenden](https://www.paypal.me/MNaeve)
+[PayPal Spenden](https://www.paypal.me/MNaeve) / [Amazon Wunschliste](http://www.amazon.de/gp/registry/wishlist/?cid=A24LZ93D9EH633)
 
 Mehr Wege uns zu unterstützen werden auch bald zur Verfügung stehen.

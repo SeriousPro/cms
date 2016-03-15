@@ -38,6 +38,6 @@ will be available soon..
 Check out our files and report issues and help us improve the cms
 and the other stuff on our [github site](https://github.com/SeriousPro) if you like to.
 Or Support us by..
-[PayPal Donations](https://www.paypal.me/MNaeve)
+[PayPal Donations](https://www.paypal.me/MNaeve) / [Amazon Wishlist](http://www.amazon.de/gp/registry/wishlist/?cid=A24LZ93D9EH633)
 
 More ways to support us coming soon, too.
