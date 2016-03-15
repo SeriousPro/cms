@@ -37,4 +37,7 @@ will be available soon..
 ## You want to support us/me?
 Check out our files and report issues and help us improve the cms
 and the other stuff on our [github site](https://github.com/SeriousPro) if you like to.
-Alternative ways to support us such like donation coming soon, too.
+Or Support us by..
+[PayPal Donations](https://www.paypal.me/MNaeve)
+
+More ways to support us coming soon, too.

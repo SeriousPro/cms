@@ -38,4 +38,7 @@ Bibliotheken werden bald verfügbar sein.
 ## Du möchtest uns/mich unterstützen?
 Sieh unsere Dateien an und melde Fehler, mach Vorschläge zur Verbesserung unseres cms
 und unserer anderen Entwicklungen auf unserer [github Seite](https://github.com/SeriousPro) falls du möchtest.
-Andere Wege uns zu unterstützen wie z. B. Spenden werden auch bald zur Verfügung stehen.
+Oder unterstütze uns durch..
+[PayPal Spenden](https://www.paypal.me/MNaeve)
+
+Mehr Wege uns zu unterstützen werden auch bald zur Verfügung stehen.
