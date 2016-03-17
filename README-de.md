@@ -7,6 +7,8 @@ Diese Ebenen kosten nur Performance, geben ein minimales Plus in Sicherheit
 und oft machen sie den Quelltext unlesbar für Leute, welche
 nicht seid Wochen/Monaten mit dem cms arbeiten.
  
+[<img src="http://dev.confu5ed.me/splex_600-2.png">](https://www.splex.eu)
+ 
 ##  Wir versuchen es besser zu machen,
 deshalb bieten wir euch ein cms für welches Ihr nicht lange lernen müsst,
 sondern nur die Grundlagen braucht

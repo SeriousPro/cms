@@ -8,6 +8,8 @@ and often they make the code mostly unreadable for people
 who did not work with the cms for weeks/months.
  
 
+[<img src="http://dev.confu5ed.me/splex_600-2.png">](https://www.splex.eu)
+
 ##  We try to make it better,
 so we give you a cms were you only need to know the basics
 
