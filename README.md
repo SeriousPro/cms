@@ -7,6 +7,7 @@ These layers only consume performance, give you a minimum plus in security
 and often they make the code mostly unreadable for people
 who did not work with the cms for weeks/months.
  
+
 ##  We try to make it better,
 so we give you a cms were you only need to know the basics
 
@@ -27,6 +28,14 @@ And of course its OpenSource under
 so you can use it for all of your website projects, no matter they are for private or business use
 and of course you are allowed to sell plugins and/or themes for this cms..
 
+## Name and Website
+This content management system is named SPLEX and this name stands for
+* Simple Php
+* Lightweight
+* Easy eXtensible
+
+[www.splex.eu](https://www.splex.eu)
+ 
 
 ## Status
 This cms is still under development an first alpha version release,

@@ -28,6 +28,14 @@ Und es steht unter einer OpenSource
 so dass Ihr das cms für all eure Projekte nutzen könnt, gleich ob für Private oder Gewerbliche.
 Natürlich dürft ihr auch Erweiterungen und Themes für das cms verkaufen.
 
+## Name and Webseite
+Dieses Content Management System wird SPLEX genannt und dieser Name steht für
+* Simple Php (Einfaches/Nur Php)
+* Lightweight (Leicht/Nicht überladen)
+* Easy eXtensible (Leicht zu erweitern)
+
+[www.splex.eu](https://www.splex.eu)
+ 
 
 ## Status
 Dieses cms wird immer noch entwickelt und eine erste alpha Version,
