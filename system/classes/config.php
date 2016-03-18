@@ -15,7 +15,7 @@ class Config
     /**
      * Get value from configuration file.
      * @param $key string - name of the file
-     * @return string|int|float|null value to the $key.
+     * @return string|int|float|null|array value to the $key.
      */
     static function get($key) {
         $value = null;
@@ -27,6 +27,18 @@ class Config
         }
 
         return $value;
+    }
+
+    /**
+     * Prepares data for writing into config file.
+     * @param $data * - data for writing into config
+     * @return string ready to write data
+     */
+    static function prepareData($data) {
+        if(is_numeric($data)) return $data;
+        if(is_string($data)) return '"'.$data.'"';
+        if(is_bool($data)) return ($data ? 'true' : 'false');
+        return null;
     }
 
     /**
@@ -42,12 +54,24 @@ class Config
         try {
             $fh = fopen($requested_file, "w");
             fwrite($fh, "<?php\n");
-            if (is_numeric($value)) {
-                fwrite($fh, '$value = ' . "$value;\n");
+            if(is_array($value) && max(array_map('count', $value)) == 1) {
+                /* array with depth of 1: */
+                fwrite($fh, '$value = [];'."\n");
+                foreach($value as $k => $v) {
+                    fwrite($fh, '$value['.$k.'] = '.Config::prepareData($v).';'."\n");
+                }
+
             } else {
-                fwrite($fh, '$value = ' . "'$value';\n");
+                $data = Config::prepareData($value);
+                if($data) {
+                    fwrite($fh, '$value = '."$data;\n");
+                } else {
+                    throw new Exception("Not Supported Config Value");
+                }
+
             }
             fclose($fh);
+
         } catch (Exception $e) {
             return false;
         }
