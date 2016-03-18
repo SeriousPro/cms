@@ -79,9 +79,28 @@ class Config
     }
 
     /**
+     * Removes a configuration file.
+     * @param $key string - name of the file
+     * @return bool success?
+     */
+    static function remove($key) {
+        $requested_file = __CONFIGS_DIR__ . "/$key.php";
+
+        if(file_exists($requested_file)) {
+            try {
+                unlink($requested_file);
+                return true;
+            } catch (Exception $e) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * Alias function for Config::set.
      * @param $key string - name of the file
-     * @param $value string|int|float|null - configuration value
+     * @param $value string|int|float|array|null - configuration value
      * @return bool success?
      */
     static function put($key, $value) {
@@ -92,7 +111,7 @@ class Config
      *
      * @param $name
      * @param $arguments
-     * @return bool|null
+     * @return bool|int|float|string|array|null
      */
     static function __callStatic($name, $arguments)
     {
