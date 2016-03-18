@@ -86,12 +86,20 @@ class Plugin
     /**
      * Load Libraries from Plugin.
      * @param $plugin string - Pluginname
-     * @param $lib string - Library-Name (list_libs for all libs if list_libs.php exists)
+     * @param $libs array|string - Library-Name (list_libs for all libs if list_libs.php exists)
      */
-    static function libs($plugin, $lib="list_libs") {
-        $requested_file = __PLUGINS_DIR__ . "/$plugin/libs/$lib.php";
-        if(file_exists($requested_file))
-            require_once ($requested_file);
+    static function libs($plugin, $libs="list_libs") {
+        if(!is_array($libs)) {
+            $requested_file = __PLUGINS_DIR__ . "/$plugin/libs/$libs.php";
+            if (file_exists($requested_file))
+                require_once($requested_file);
+        } else {
+            foreach($libs as $lib) {
+                $requested_file = __PLUGINS_DIR__ . "/$plugin/libs/$lib.php";
+                if (file_exists($requested_file))
+                    require_once($requested_file);
+            }
+        }
     }
 
     /**
