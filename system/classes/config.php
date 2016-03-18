@@ -38,7 +38,7 @@ class Config
         if(is_numeric($data)) return $data;
         if(is_string($data)) return '"'.$data.'"';
         if(is_bool($data)) return ($data ? 'true' : 'false');
-        return null;
+        return 'null';
     }
 
     /**
@@ -63,7 +63,7 @@ class Config
 
             } else {
                 $data = Config::prepareData($value);
-                if($data) {
+                if($data != 'null') {
                     fwrite($fh, '$value = '."$data;\n");
                 } else {
                     throw new Exception("Not Supported Config Value");
