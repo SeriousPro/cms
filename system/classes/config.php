@@ -58,7 +58,7 @@ class Config
                 /* array with depth of 1: */
                 fwrite($fh, '$value = [];'."\n");
                 foreach($value as $k => $v) {
-                    fwrite($fh, '$value['.$k.'] = '.Config::prepareData($v).';'."\n");
+                    fwrite($fh, '$value['.Config::prepareData($k).'] = '.Config::prepareData($v).';'."\n");
                 }
 
             } else {
