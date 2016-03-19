@@ -103,6 +103,67 @@ class Plugin
     }
 
     /**
+     * Add a plugin lib to autoload before loading Theme and Plugin.
+     * @param $plugin string - Pluginname
+     * @param $libs array|string - Library-Name (list_libs for all libs if list_libs.php exists)
+     * @return bool|int successfully added to autoload?
+     */
+    static function addAutoload($plugin, $libs="list_libs") {
+        $autoloadLibs = Config::get("plugins_libs_autoload");
+        if($autoloadLibs) {
+            if(!is_array($libs)) {
+                if(!in_array(__PLUGINS_DIR__."/$plugin/$libs.php", $autoloadLibs)) {
+                    $autoloadLibs[] = __PLUGINS_DIR__."/$plugin/$libs.php";
+                }
+
+            } else {
+                foreach($libs as $lib) {
+                    if(!in_array(__PLUGINS_DIR__."/$plugin/$lib.php", $autoloadLibs)) {
+                        $autoloadLibs[] = __PLUGINS_DIR__."/$plugin/$lib.php";
+                    }
+                }
+
+            }
+
+        }
+
+        return Config::set("plugins_libs_autoload", $autoloadLibs);
+    }
+
+    /**
+     * Remove a plugin lib from autoload before loading Theme and Plugin.
+     */
+    static function removeAutoload($plugin, $libs="list_libs") {
+        $autoloadLibs = Config::get("plugins_libs_autoload");
+        if($autoloadLibs) {
+            if(!is_array($libs)) {
+                if(($k = array_search(__PLUGINS_DIR__."/$plugin/$libs.php", $autoloadLibs)) !== false) {
+                    unset($autoloadLibs[$k]);
+                }
+            } else {
+                foreach($libs as $lib) {
+                    if(($k = array_search(__PLUGINS_DIR__."/$plugin/$lib.php", $autoloadLibs)) !== false) {
+                        unset($autoloadLibs[$k]);
+                    }
+                }
+            }
+
+        }
+
+        return Config::set("plugins_libs_autoload", $autoloadLibs);
+    }
+
+    /**
+     * Autoload registered plugin libraries.
+     */
+    static function autoload() {
+        $autoloadLibs = Config::get("plugins_libs_autoload");
+        foreach($autoloadLibs as $lib) {
+            if(file_exists($lib)) require_once $lib;
+        }
+    }
+
+    /**
      * Function for getting the name of the plugin which has to be loaded.
      * @return string - site name (plugin name) which has to be loaded
      */

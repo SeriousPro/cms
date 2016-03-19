@@ -47,6 +47,10 @@ include_once (__SYSTEM_DIR__ . "/load.functions.php");
  */
 include_once (__SYSTEM_DIR__ . "/load.classes.php");
 
+/**
+ * Autoload Plugin Libraries
+ */
+Plugin::autoload();
 
 
 /*
