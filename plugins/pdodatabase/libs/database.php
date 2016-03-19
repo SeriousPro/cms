@@ -20,7 +20,7 @@ class Database
      * Connect to database if not already connected.
      */
     static function connect() {
-        if(Database::$connection == null) {
+        if(self::$connection == null) {
 
             $dsn = Config::get("pdodatabase_driver")
                 .";host=".Config::get("pdodatabase_host")
@@ -36,10 +36,10 @@ class Database
                     $dsn .= ";charset=" . Config::get("pdodatabase_charset");
                 }
             }
-            Database::$connection = @new PDO($dsn, Config::get("pdodatabase_user"), Config::get("pdodatabase_password"));
+            self::$connection = @new PDO($dsn, Config::get("pdodatabase_user"), Config::get("pdodatabase_password"));
 
             if(version_compare(PHP_VERSION, '5.3.6', '<') && !defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
-                Database::$connection->exec(
+                self::$connection->exec(
                     "SET NAMES " . Config::get("pdodatabase_charset")
                         . (Config::get("pdodatabase_driver") == "mysql" ? " COLLATE ".Config::get("pdodatabase_collate") : "" )
                 );
@@ -52,9 +52,9 @@ class Database
      * Close database connection if connected.
      */
     static function close() {
-        if(Database::$connection != null) {
-            Database::$connection->close();
-            Database::$connection = null;
+        if(self::$connection != null) {
+            self::$connection->close();
+            self::$connection = null;
         }
     }
 
@@ -63,8 +63,8 @@ class Database
      * @return PDO|null
      */
     static function db() {
-        Database::connect();
-        return Database::$connection;
+        self::connect();
+        return self::$connection;
     }
 
 }
