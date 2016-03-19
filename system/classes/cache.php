@@ -19,7 +19,8 @@ class Cache
      */
     static function set($key, $data, $ttl) {
         $encrypted_key = hash(Config::get("cache_key_encryption"), Config::get("cache_security_salt").$key);
-        // TODO: add $data to cache with $encrypted_key as key and a lifetime of $ttl.
+
+        return self::putToCache($encrypted_key, $data, $ttl);
     } /* end Cache::set */
 
     /**
@@ -29,7 +30,46 @@ class Cache
      */
     static function get($key) {
         $encrypted_key = hash(Config::get("cache_key_encryption"), Config::get("cache_security_salt").$key);
-        // TODO: get and return data from cache with $encrypted_key as key.
-        return null;
+
+        return self::getFromCache($encrypted_key);
     } /* end Cache::get */
+
+
+    static function putToCache($ek, $data, $ttl) {
+        $index_file = Config::get("cache_directory") . "/index/" . $ek . ".php";
+        $data_file = Config::get("cache_directory") . "/data/" . $ek . ".php";
+
+        if(file_exists($index_file)) {
+            unlink($index_file);
+        }
+        $index_success = file_put_contents($index_file, '$ttl = '.(time()+$ttl).';');
+
+        if(file_exists($data_file)) {
+            unlink($data_file);
+        }
+        $data_success = file_put_contents($data_file, '$data = "'.json_encode($data).'";'."\n");
+
+        if($index_success && $data_success) return true;
+        return false;
+    }
+
+    static  function getFromCache($ek) {
+        $index_file = Config::get("cache_directory") . "/" . Config::get("cache_index_directory") . "/" . $ek . ".php";
+        $data_file = Config::get("cache_directory") . "/" . Config::get("cache_data_directory") . "/" . $ek . ".php";
+
+        $ttl = 0;
+        include $index_file;
+        if($ttl-time() <= 0) {
+            @unlink($index_file);
+            @unlink($data_file);
+            return null;
+        }
+
+        $data = null;
+        include $data_file;
+        if($data)
+            return json_decode($data);
+
+        return null;
+    }
 }
