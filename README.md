@@ -28,7 +28,7 @@ And of course its OpenSource under
 2. [LGPLv3](https://github.com/SeriousPro/cms/blob/master/LICENSE2)
 
 so you can use it for all of your website projects, no matter they are for private or business use
-and of course you are allowed to sell plugins and/or themes for this cms..
+and you are allowed to sell plugins and/or themes or complete websites for/with this cms..
 
 ## Name and Website
 This content management system is named SPLEX and this name stands for
