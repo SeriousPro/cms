@@ -125,6 +125,10 @@ class Plugin
 
             }
 
+        } else {
+            if(Config::set("plugins_libs_autoload", [])) {
+                return Plugin::addAutoload($plugin, $libs);
+            }
         }
 
         return Config::set("plugins_libs_autoload", $autoloadLibs);
@@ -132,6 +136,9 @@ class Plugin
 
     /**
      * Remove a plugin lib from autoload before loading Theme and Plugin.
+     * @param $plugin string - Pluginname
+     * @param $libs array|string - Library-Name (list_libs for all libs if list_libs.php exists)
+     * @return bool|int successfully removed from autoload?
      */
     static function removeAutoload($plugin, $libs="list_libs") {
         $autoloadLibs = Config::get("plugins_libs_autoload");
@@ -150,7 +157,11 @@ class Plugin
 
         }
 
-        return Config::set("plugins_libs_autoload", $autoloadLibs);
+        if($autoloadLibs) {
+            return Config::set("plugins_libs_autoload", $autoloadLibs);
+        } else {
+            return true;
+        }
     }
 
     /**
