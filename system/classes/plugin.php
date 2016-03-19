@@ -182,10 +182,10 @@ class Plugin
         if(isset($_SESSION['default_site'])) {
             return $_SESSION['default_site'];
         }
-        if(Config::get("plugins_default_site") != null) {
+        if(Config::get("plugins_default_site")) {
             return Config::get("plugins_default_site");
         }
-        return "error";
+        return null;
     }
 
 }
