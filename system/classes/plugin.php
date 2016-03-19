@@ -149,9 +149,10 @@ class Plugin
                 }
             } else {
                 foreach($libs as $lib) {
-                    if(($k = array_search(__PLUGINS_DIR__."/$plugin/$lib.php", $autoloadLibs)) !== false) {
-                        unset($autoloadLibs[$k]);
-                    }
+                    $libFile = __PLUGINS_DIR__."/$plugin/$lib.php";
+                    $autoloadLibs = array_filter($autoloadLibs, function($e) use ($libFile){
+                        return ($e !== $libFile);
+                    });
                 }
             }
             return Config::set("plugins_libs_autoload", $autoloadLibs);
