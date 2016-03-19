@@ -154,14 +154,11 @@ class Plugin
                     }
                 }
             }
-
-        }
-
-        if($autoloadLibs) {
             return Config::set("plugins_libs_autoload", $autoloadLibs);
-        } else {
-            return true;
+
         }
+
+        return true;
     }
 
     /**
