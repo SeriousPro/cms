@@ -10,6 +10,6 @@ function select_theme() {
         }
     }
     if(!isset($_SESSION['theme'])) {
-        $_SESSION['theme'] = DEFAULT_THEME;
+        $_SESSION['theme'] = Config::get("themes_default");
     }
 }
