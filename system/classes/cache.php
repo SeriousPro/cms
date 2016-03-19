@@ -57,6 +57,8 @@ class Cache
         $index_file = Config::get("cache_directory") . "/" . Config::get("cache_index_directory") . "/" . $ek . ".php";
         $data_file = Config::get("cache_directory") . "/" . Config::get("cache_data_directory") . "/" . $ek . ".php";
 
+        if(!(file_exists($index_file) && file_exists($data_file))) return null;
+
         $ttl = 0;
         include $index_file;
         if($ttl-time() <= 0) {
