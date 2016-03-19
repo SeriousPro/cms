@@ -58,11 +58,11 @@ class Config
                 /* array with depth of 1: */
                 fwrite($fh, '$value = [];'."\n");
                 foreach($value as $k => $v) {
-                    fwrite($fh, '$value['.Config::prepareData($k).'] = '.Config::prepareData($v).';'."\n");
+                    fwrite($fh, '$value['.self::prepareData($k).'] = '.self::prepareData($v).';'."\n");
                 }
 
             } else {
-                $data = Config::prepareData($value);
+                $data = self::prepareData($value);
                 if($data != 'null') {
                     fwrite($fh, '$value = '."$data;\n");
                 } else {
@@ -104,7 +104,7 @@ class Config
      * @return bool success?
      */
     static function put($key, $value) {
-        return Config::set($key, $value);
+        return self::set($key, $value);
     }
 
     /**
@@ -123,10 +123,10 @@ class Config
         /* choose function by function prefix */
         switch($fn) {
             case "get":
-                return Config::get($fr);
+                return self::get($fr);
                 break;
             case "set":
-                return Config::set($fr, $arguments[0]);
+                return self::set($fr, $arguments[0]);
                 break;
             default: return null;
         }
