@@ -22,26 +22,26 @@ class Database
     static function connect() {
         if(Database::$connection == null) {
 
-            $dsn = Config::get("database_driver")
-                .";host=".Config::get("database_host")
-                .";port=".Config::get("database_port")
-                .";dbname=".Config::get("database_dbname");
+            $dsn = Config::get("pdodatabase_driver")
+                .";host=".Config::get("pdodatabase_host")
+                .";port=".Config::get("pdodatabase_port")
+                .";dbname=".Config::get("pdodatabase_dbname");
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ];
             if(defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
-                $options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES ".Config::get("database_charset")." COLLATE ".Config::get("database_collate");
+                $options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES ".Config::get("pdodatabase_charset")." COLLATE ".Config::get("pdodatabase_collate");
             } else {
                 if(version_compare(PHP_VERSION, '5.3.6', '>=')) {
-                    $dsn .= ";charset=" . Config::get("database_charset");
+                    $dsn .= ";charset=" . Config::get("pdodatabase_charset");
                 }
             }
-            Database::$connection = @new PDO($dsn, Config::get("database_user"), Config::get("database_password"));
+            Database::$connection = @new PDO($dsn, Config::get("pdodatabase_user"), Config::get("pdodatabase_password"));
 
             if(version_compare(PHP_VERSION, '5.3.6', '<') && !defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
                 Database::$connection->exec(
-                    "SET NAMES " . Config::get("database_charset")
-                        . (Config::get("database_driver") == "mysql" ? " COLLATE ".Config::get("database_collate") : "" )
+                    "SET NAMES " . Config::get("pdodatabase_charset")
+                        . (Config::get("pdodatabase_driver") == "mysql" ? " COLLATE ".Config::get("pdodatabase_collate") : "" )
                 );
             }
 
