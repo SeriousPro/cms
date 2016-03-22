@@ -79,7 +79,7 @@ class Url
 
         if(!isset($l)) { $l = Config::get("language_default"); }
 
-        return Url::generateSiteUrl($s, $p, $l);
+        return self::generateSiteUrl($s, $p, $l);
     } /* -- end Url::site() -- */
 
     /**
@@ -94,8 +94,8 @@ class Url
             $v = $_GET[$gp];
             if(!isset($arguments) || !isset($arguments[0])) return $v;
             switch(mb_strtolower($arguments[0])) {
-                case Url::$GET_PLAIN: return $v;
-                case Url::$GET_PRINT: return htmlentities($v);
+                case self::$GET_PLAIN: return $v;
+                case self::$GET_PRINT: return htmlentities($v);
             }
         }
         return null;
