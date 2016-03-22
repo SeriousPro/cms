@@ -22,7 +22,7 @@ class Config
         $requested_file = __CONFIGS_DIR__ . "/$key.php";
 
         /* load config if exist */
-        if(file_exists($requested_file)) {
+        if(is_file($requested_file)) {
             include $requested_file;
         }
 
@@ -86,7 +86,7 @@ class Config
     static function remove($key) {
         $requested_file = __CONFIGS_DIR__ . "/$key.php";
 
-        if(file_exists($requested_file)) {
+        if(is_file($requested_file)) {
             try {
                 unlink($requested_file);
                 return true;
@@ -105,31 +105,6 @@ class Config
      */
     static function put($key, $value) {
         return self::set($key, $value);
-    }
-
-    /**
-     *
-     * @param $name
-     * @param $arguments
-     * @return bool|int|float|string|array|null
-     */
-    static function __callStatic($name, $arguments)
-    {
-        /* prepare function name */
-        $f = mb_strtolower($name);
-        $fn = mb_substr($f, 0, 3);
-        $fr = mb_substr($f, 2, mb_strlen($f)-3);
-
-        /* choose function by function prefix */
-        switch($fn) {
-            case "get":
-                return self::get($fr);
-                break;
-            case "set":
-                return self::set($fr, $arguments[0]);
-                break;
-            default: return null;
-        }
     }
 
 }

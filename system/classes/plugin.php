@@ -19,7 +19,7 @@ class Plugin
      */
     static function head($plugin, $params="") {
         $requested_file =__PLUGINS_DIR__ . "/$plugin/head.php";
-        if(file_exists($requested_file))
+        if(is_file($requested_file))
             include ($requested_file);
     }
 
@@ -30,7 +30,7 @@ class Plugin
      */
     static function body($plugin, $params="") {
         $requested_file =__PLUGINS_DIR__ . "/$plugin/body.php";
-        if(file_exists($requested_file))
+        if(is_file($requested_file))
             include ($requested_file);
     }
 
@@ -42,7 +42,7 @@ class Plugin
      */
     static function breadcrumbs($plugin, $params="") {
         $requested_file =__PLUGINS_DIR__ . "/$plugin/breadcrumbs.php";
-        if(file_exists($requested_file))
+        if(is_file($requested_file))
             include ($requested_file);
     }
 
@@ -53,7 +53,7 @@ class Plugin
      */
     static function sitename($plugin, $params="") {
         $requested_file = __PLUGINS_DIR__ . "/$plugin/sitename.php";
-        if(file_exists($requested_file))
+        if(is_file($requested_file))
             include ($requested_file);
     }
 
@@ -65,7 +65,7 @@ class Plugin
      */
     static function notheme($plugin, $params="") {
         $requested_file = __PLUGINS_DIR__ . "/$plugin/disable_theme.php";
-        if(file_exists($requested_file)) {
+        if(is_file($requested_file)) {
             include($requested_file);
         }
         return false;
@@ -79,7 +79,7 @@ class Plugin
      */
     static function box($plugin, $box, $params=[]) {
         $requested_file = __PLUGINS_DIR__ . "/$plugin/boxes/$box.php";
-        if(file_exists($requested_file))
+        if(is_file($requested_file))
             include ($requested_file);
     }
 
@@ -91,12 +91,12 @@ class Plugin
     static function libs($plugin, $libs="list_libs") {
         if(!is_array($libs)) {
             $requested_file = __PLUGINS_DIR__ . "/$plugin/libs/$libs.php";
-            if (file_exists($requested_file))
+            if (is_file($requested_file))
                 require_once($requested_file);
         } else {
             foreach($libs as $lib) {
                 $requested_file = __PLUGINS_DIR__ . "/$plugin/libs/$lib.php";
-                if (file_exists($requested_file))
+                if (is_file($requested_file))
                     require_once($requested_file);
             }
         }
@@ -168,7 +168,7 @@ class Plugin
     static function autoload() {
         $autoloadLibs = Config::get("plugins_libs_autoload");
         foreach($autoloadLibs as $lib) {
-            if(file_exists($lib)) require_once $lib;
+            if(is_file($lib)) require_once $lib;
         }
     }
 

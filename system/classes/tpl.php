@@ -39,7 +39,7 @@ class Tpl
             __SYSTEM_DIR__."/templates/$tpl".( mb_substr($tpl, mb_strlen($tpl)-5, 4) == ".ptpl" )
         ];
         for($i=0;$i<count($requested_files);$i++) {
-            if(file_exists($requested_files[$i])) {
+            if(is_file($requested_files[$i])) {
                 $this->tplPath = $requested_files[$i];
             }
         }
@@ -49,7 +49,7 @@ class Tpl
      * Prints out the template and gives parameters as variables to it.
      */
     function out() {
-        if(file_exists($this->tplPath)) {
+        if(is_file($this->tplPath)) {
             extract($this->p);
             include($this->tplPath);
         }

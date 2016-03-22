@@ -37,7 +37,7 @@ class Lang
             $base_dirs = [$base_dir];
         }
         for($i=0;$i<count($base_dirs);$i++) {
-            if(file_exists($base_dirs[$i]."/languages/$lang.php")) {
+            if(is_file($base_dirs[$i]."/languages/$lang.php")) {
                 include ($base_dirs[$i]."/languages/$lang.php");
                 if(isset($tr) && isset($tr[$str])) {
                     return $tr[$str];

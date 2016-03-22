@@ -39,12 +39,12 @@ class Cache
         $index_file = Config::get("cache_directory") . "/index/" . $ek . ".php";
         $data_file = Config::get("cache_directory") . "/data/" . $ek . ".php";
 
-        if(file_exists($index_file)) {
+        if(is_file($index_file)) {
             unlink($index_file);
         }
         $index_success = file_put_contents($index_file, '$ttl = '.(time()+$ttl).';');
 
-        if(file_exists($data_file)) {
+        if(is_file($data_file)) {
             unlink($data_file);
         }
         $data_success = file_put_contents($data_file, '$data = "'.json_encode($data).'";'."\n");
@@ -57,11 +57,11 @@ class Cache
         $index_file = Config::get("cache_directory") . "/" . Config::get("cache_index_directory") . "/" . $ek . ".php";
         $data_file = Config::get("cache_directory") . "/" . Config::get("cache_data_directory") . "/" . $ek . ".php";
 
-        if(!file_exists($index_file)) {
-            if(file_exists($data_file)) @unlink($data_file);
+        if(!is_file($index_file)) {
+            if(is_file($data_file)) @unlink($data_file);
             return null;
         }
-        if(!file_exists($data_file))
+        if(!is_file($data_file))
         {
             @unlink($index_file);
             return null;
